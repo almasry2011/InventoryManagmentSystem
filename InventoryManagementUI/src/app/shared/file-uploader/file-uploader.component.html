@@ -1,0 +1,60 @@
+<!-- <div class="clearfix">
+    <nz-upload (nzChange)="handleChange($event)" nzListType="picture-card" [nzFileType]="'image/png,image/jpeg,image/gif,image/bmp'" [(nzFileList)]="fileList1">
+
+
+      [nzBeforeUpload]="beforeUpload" [nzShowButton]="fileList1.length < 8"
+
+
+        <div>
+            <i nz-icon nzType="plus"></i>
+            <div style="margin-top: 8px">Upload</div>
+        </div>
+    </nz-upload>
+    <nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" [nzFooter]="null" (nzOnCancel)="previewVisible = false">
+        <ng-template #modalContent>
+            <img [src]="previewImage" [ngStyle]="{ width: '100%' }" />
+        </ng-template>
+    </nz-modal>
+</div>
+
+<button (click)="handleUpload(null)" class="btn btn-outline-success">
+  Upload
+   nzAction="https://localhost:44356/api/File/UploadFiles"
+</button> -->
+
+<div class="row">
+    <div class="col-3" *ngFor="let file of _filesList">
+        <img src="{{ file.httpFilePath }}" class="w-100 shadow-1-strong rounded mb-4 img-file" alt="{{ file.mimeType }}" />
+
+        <span class="dlt-btn-span">
+      <button type="button" class="btn btn-outline-danger btn-file-rm">
+        <i class="fa fa-trash-alt"></i>
+      </button>
+    </span>
+    </div>
+
+    <div class="col-3">
+        <label for="fileUploader" class="file-Uploader">Choose File</label><br />
+        <input type="file" class="d-none" multiple id="fileUploader" (change)="uploadFiles($event)" />
+    </div>
+</div>
+
+<button type="button" (click)="RequestUpload()">Ok</button>
+
+<!--
+<div class="clearfix">
+    <nz-upload [nzShowUploadList]="true" [nzBeforeUpload]="beforeUpload" nzListType="picture-card" [nzMultiple]="true" [nzLoading]="uploading" [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 8" [nzPreview]="handlePreview">
+        <div>
+            <i nz-icon nzType="plus"></i>
+            <div style="margin-top: 8px">Upload</div>
+        </div>
+    </nz-upload>
+    <nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" [nzFooter]="null" (nzOnCancel)="previewVisible = false">
+        <ng-template #modalContent>
+            <img [src]="previewImage" [ngStyle]="{ width: '50%' }" />
+        </ng-template>
+    </nz-modal>
+</div>
+<button (click)="handleUpload2()" id="uploadBtn" class="btn btn-outline-success">
+  Upload
+</button> -->

@@ -1,0 +1,3 @@
+<nz-date-picker (nzOnOpenChange)="dateChangeevent($event)" *ngIf="!range" [nzFormat]="dateFormat"></nz-date-picker>
+
+<nz-range-picker (nzOnOpenChange)="dateChangeevent($event)" *ngIf="range" [nzFormat]="dateFormat"></nz-range-picker>

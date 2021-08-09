@@ -1,0 +1,37 @@
+img.w-100.shadow-1-strong.rounded.mb-4 {
+    border: 1px dashed green;
+    padding: 5px;
+    height: 100%;
+    object-fit: contain;
+}
+
+label.file-Uploader {
+    border: 2px dashed green;
+    padding: 30px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    font-size: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.dlt-btn-span {
+    position: absolute;
+    bottom: 3px;
+    right: 40%;
+}
+
+.btn-file-rm {
+    text-align: center;
+    opacity: 0;
+    transition: opacity .35s ease;
+    position: relative;
+}
+
+.img-file:hover .btn-file-rm {
+    opacity: 1;
+}

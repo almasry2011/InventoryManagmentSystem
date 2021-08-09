@@ -1,0 +1,173 @@
+<div class="">
+    <form id="MainForm" [formGroup]="MainForm" (ngSubmit)="OnFormSubmit()">
+        <span> Multple Mode </span>
+
+        <nz-switch [(ngModel)]="multpleMode" [ngModelOptions]="{ standalone: true }"></nz-switch>
+
+        <nz-tabset [(nzSelectedIndex)]="selectedIndex">
+            <nz-tab nzTitle=" Product info" [nzDisabled]="selectedIndex != 0" formGroupName="BasicInfo">
+                <div class="card">
+                    <div class="w-100 row card-body">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="ProductName">Name</label>
+                                <input type="text" class="form-control" id="ProductName" name="ProductName" formControlName="name" />
+
+                                <span *ngIf="name.touched && name.invalid">
+                  <small
+                    *ngIf="name.hasError('required')"
+                    class="form-text text-danger"
+                    >Required Input, please inpue a value</small
+                  >
+                  <small
+                    *ngIf="name.hasError('minlength')"
+                    class="form-text text-danger"
+                    >must be not less than 3
+                  </small>
+                  <small
+                    *ngIf="name.hasError('maxlength')"
+                    class="form-text text-danger"
+                    >must be not more than 50
+                  </small>
+                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="productCategoryId"> Category </label>
+                                <app-lazy-select [selectedValue]="catInitVal" ngDefaultControl formControlName="productCategoryId" name="productCategoryId" id="warehouseId" [URL]="catURl" [IsRequired]="true" [Disabled]="catDisabled" [MultiMode]="MultiMode" [pageSize]="pageSize" [PlaceHolder]="catPlaceHolder"
+                                    (selectedOptionChange)="catChanged($event)"></app-lazy-select>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="warehouseId"> Warehouse </label>
+                                <app-lazy-select [selectedValue]="whInitVal" name="warehouseId" required ngDefaultControl formControlName="warehouseId" id="warehouseId" [URL]="whURl" [IsRequired]="true" [Disabled]="whDisabled" [MultiMode]="MultiMode" [pageSize]="pageSize" [PlaceHolder]="whPlaceHolder"
+                                    (selectedOptionChange)="whChanged($event)">
+                                </app-lazy-select>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="stock"> BIN </label>
+
+                                <app-lazy-select [selectedValue]="binInitVal" name="warehouseBinId" id="warehouseBinId" [URL]="binURl" [IsRequired]="true" [Disabled]="warehouseId.invalid" [MultiMode]="MultiMode" [pageSize]="pageSize" [PlaceHolder]="binPlaceHolder" [filter]="binfilter"
+                                    (selectedOptionChange)="binChanged($event)">
+                                </app-lazy-select>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="itemsInBox">Items In Box</label>
+                                <input type="number" class="form-control" name="itemsInBox" formControlName="itemsInBox" id="itemsInBox" />
+
+                                <span *ngIf="itemsInBox.touched && itemsInBox.invalid">
+                  <small
+                    *ngIf="itemsInBox.hasError('required')"
+                    class="form-text text-danger"
+                    >Required Input, please inpue a value</small
+                  >
+                  <small
+                    *ngIf="itemsInBox.hasError('min')"
+                    class="form-text text-danger"
+                    >must be not less than 1
+                  </small>
+                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="itemsInBox">Selling BoxPrice</label>
+                                <input type="number" class="form-control" name="sellingBoxPrice" formControlName="sellingBoxPrice" id="sellingBoxPrice" />
+
+                                <span *ngIf="sellingBoxPrice.touched && sellingBoxPrice.invalid">
+                  <small
+                    *ngIf="sellingBoxPrice.hasError('required')"
+                    class="form-text text-danger"
+                    >Required Input, please inpue a value</small
+                  >
+                  <small
+                    *ngIf="sellingBoxPrice.hasError('min')"
+                    class="form-text text-danger"
+                    >must be not less than 1
+                  </small>
+                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="sellingUnitPrice">Selling UnitPrice</label>
+                                <input type="number" class="form-control" name="sellingUnitPrice" formControlName="sellingUnitPrice" id="sellingUnitPrice" />
+
+                                <span *ngIf="sellingUnitPrice.touched && sellingUnitPrice.invalid">
+                  <small
+                    *ngIf="sellingUnitPrice.hasError('required')"
+                    class="form-text text-danger"
+                    >Required Input, please inpue a value</small
+                  >
+                  <small
+                    *ngIf="itemsInBox.hasError('min')"
+                    class="form-text text-danger"
+                    >must be not less than 1
+                  </small>
+                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="Description">Description</label>
+                                <textarea class="form-control" id="Description" name="Description" formControlName="description" rows="3"></textarea>
+                                <span *ngIf="description.touched && description.invalid">
+                  <small
+                    *ngIf="description.hasError('required')"
+                    class="form-text text-danger"
+                    >Required Input, please inpue a value</small
+                  >
+                  <small
+                    *ngIf="description.hasError('minlength')"
+                    class="form-text text-danger"
+                    >must be not less than 3
+                  </small>
+                  <small
+                    *ngIf="description.hasError('maxlength')"
+                    class="form-text text-danger"
+                    >must be not more than 200
+                  </small>
+                </span>
+                            </div>
+                        </div>
+
+                        <!-- <button type="submit" [disabled]="!MainForm.valid" class="btn btn-primary">Submit</button> -->
+
+                        <div class="mx-auto">
+                            <!-- <button class="btn btn-outline-secondary mx-2" (click)="CloseModal(false)">Close</button> -->
+
+                            <button type="button" (click)="beforeActivateTab(1, $event)" class="btn btn-outline-primary">
+                Next
+              </button>
+                        </div>
+                    </div>
+                </div>
+            </nz-tab>
+
+            <nz-tab [nzDisabled]="selectedIndex < 0" nzTitle="Product Images">
+                <app-file-uploader></app-file-uploader>
+
+                <div class="mx-auto">
+                    <button type="submit" class="btn btn-outline-success">Save</button>
+
+                    <button type="button" (click)="beforeActivateTab(1, $event)" class="btn btn-outline-secondary">
+            Back
+          </button>
+                </div>
+            </nz-tab>
+        </nz-tabset>
+    </form>
+</div>

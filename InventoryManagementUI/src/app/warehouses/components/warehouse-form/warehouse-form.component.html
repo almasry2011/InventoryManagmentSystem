@@ -1,0 +1,197 @@
+<div class="">
+    <form id="MainForm" [formGroup]="MainForm" (ngSubmit)="OnFormSubmit()">
+        <div class="card my-2">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="Name">Name</label>
+                    <input type="text" class="form-control" id="Name" name="Name" formControlName="name" />
+
+                    <span *ngIf="name.touched && name.invalid">
+            <small
+              *ngIf="name.hasError('required')"
+              class="form-text text-danger"
+              >Required Input, please inpue a value</small
+            >
+            <small
+              *ngIf="name.hasError('minlength')"
+              class="form-text text-danger"
+              >must be not less than 3
+            </small>
+            <small
+              *ngIf="name.hasError('maxlength')"
+              class="form-text text-danger"
+              >must be not more than 50
+            </small>
+          </span>
+                </div>
+            </div>
+            <h3 class="p-2">Location</h3>
+            <div class="w-100 row card-body">
+                <div class="col-3">
+                    <div class="form-group">
+                        <label for="locationStreet">Street</label>
+                        <input type="text" class="form-control" id="locationStreet" name="locationStreet" formControlName="locationStreet" />
+
+                        <span *ngIf="locationStreet.touched && locationStreet.invalid">
+              <small
+                *ngIf="locationStreet.hasError('required')"
+                class="form-text text-danger"
+                >Required Input, please inpue a value</small
+              >
+              <small
+                *ngIf="locationStreet.hasError('minlength')"
+                class="form-text text-danger"
+                >must be not less than 3
+              </small>
+              <small
+                *ngIf="locationStreet.hasError('maxlength')"
+                class="form-text text-danger"
+                >must be not more than 50
+              </small>
+            </span>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="form-group">
+                        <label for="locationCity">City</label>
+                        <input type="text" class="form-control" id="locationCity" name="locationCity" formControlName="locationCity" />
+
+                        <span *ngIf="locationCity.touched && locationCity.invalid">
+              <small
+                *ngIf="locationCity.hasError('required')"
+                class="form-text text-danger"
+                >Required Input, please inpue a value</small
+              >
+              <small
+                *ngIf="locationCity.hasError('minlength')"
+                class="form-text text-danger"
+                >must be not less than 3
+              </small>
+              <small
+                *ngIf="locationCity.hasError('maxlength')"
+                class="form-text text-danger"
+                >must be not more than 50
+              </small>
+            </span>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="form-group">
+                        <label for="locationState">State</label>
+                        <input type="text" class="form-control" id="locationState" name="locationState" formControlName="locationState" />
+
+                        <span *ngIf="locationState.touched && locationState.invalid">
+              <small
+                *ngIf="locationState.hasError('required')"
+                class="form-text text-danger"
+                >Required Input, please inpue a value</small
+              >
+              <small
+                *ngIf="locationState.hasError('minlength')"
+                class="form-text text-danger"
+                >must be not less than 3
+              </small>
+              <small
+                *ngIf="locationState.hasError('maxlength')"
+                class="form-text text-danger"
+                >must be not more than 50
+              </small>
+            </span>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="form-group">
+                        <label for="locationZipCode">ZipCode</label>
+                        <input type="text" class="form-control" id="locationZipCode" name="locationZipCode" formControlName="locationZipCode" />
+
+                        <span *ngIf="locationZipCode.touched && locationZipCode.invalid">
+              <small
+                *ngIf="locationZipCode.hasError('required')"
+                class="form-text text-danger"
+                >Required Input, please inpue a value</small
+              >
+              <small
+                *ngIf="locationZipCode.hasError('minlength')"
+                class="form-text text-danger"
+                >must be not less than 3
+              </small>
+              <small
+                *ngIf="locationZipCode.hasError('maxlength')"
+                class="form-text text-danger"
+                >must be not more than 50
+              </small>
+            </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card p-2 my-3">
+            <div class="row px-4">
+                <h3 class="float-left">Warehouse bin</h3>
+
+                <button type="button" title="Add Warehouse bin" class="btn btn-outline-success ml-auto d-block" (click)="addItem()">
+          <i class="fa fa-plus"></i>
+        </button>
+            </div>
+
+            <div class="card-body w-100 row">
+                <div formArrayName="bins" *ngFor="let item of WhBins.controls; let i = index">
+                    <div [formGroupName]="i" class="row">
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label *ngIf="i == 0" for="binName">Name</label>
+                                <input (change)="GenerateSerialNumber(i)" type="text" class="form-control" id="binName" name="binName" formControlName="name" />
+                            </div>
+                        </div>
+
+                        <div class="col-5">
+                            <div class="form-group">
+                                <label *ngIf="i == 0" for="binColor">Color</label>
+                                <nz-radio-group class="d-block" formControlName="color" name="binColor" nzButtonStyle="solid">
+                                    <label class="text-danger" nz-radio-button nzValue="red">Red</label
+                  >
+                  <label class="text-primary" nz-radio-button nzValue="blue"
+                    >Blue</label
+                  >
+                  <label class="text-success" nz-radio-button nzValue="green"
+                    >Green</label
+                  >
+                  <label class="text-warning" nz-radio-button nzValue="yellow"
+                    >Yellow</label
+                  >
+                </nz-radio-group>
+              </div>
+            </div>
+
+            <div class="col-2">
+              <div class="form-group">
+                <label *ngIf="i == 0" for="binSerialNumber">SerialNumber</label>
+                                    <input type="text" class="form-control" id="binSerialNumber" name="binSerialNumber" formControlName="serialNumber" />
+                            </div>
+                        </div>
+
+                        <div [ngStyle]="i == 0 ? { 'margin-top': '7px' } : {}" class="form-group">
+                            <label *ngIf="i == 0"></label>
+                            <button type="button" title="Delete" class="btn btn-outline-danger ml-auto d-block" (click)="deleteControl(i)">
+                <i class="fa fa-trash-alt"></i>
+              </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *nzModalFooter class="mx-auto" style="width: fit-content">
+            <button class="btn btn-outline-secondary mx-2" (click)="destroyModal()">
+        Cancel
+      </button>
+            <button type="submit" form="MainForm" class="btn btn-outline-primary">
+        Save
+      </button>
+        </div>
+    </form>
+</div>

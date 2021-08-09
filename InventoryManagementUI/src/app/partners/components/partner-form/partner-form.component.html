@@ -1,0 +1,223 @@
+<div class="">
+    <form id="MainForm" [formGroup]="MainForm" (ngSubmit)="OnFormSubmit()">
+        <div class="card my-2">
+            <div class="card-body row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="Name">Name</label>
+                        <input type="text" class="form-control" id="Name" name="Name" formControlName="name" />
+
+                        <span *ngIf="name.touched && name.invalid">
+              <small
+                *ngIf="name.hasError('required')"
+                class="form-text text-danger"
+                >Required Input, please inpue a value</small
+              >
+              <small
+                *ngIf="name.hasError('minlength')"
+                class="form-text text-danger"
+                >must be not less than 3
+              </small>
+              <small
+                *ngIf="name.hasError('maxlength')"
+                class="form-text text-danger"
+                >must be not more than 50
+              </small>
+            </span>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number</label>
+                        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" formControlName="phoneNumber" />
+
+                        <span *ngIf="phoneNumber.touched && phoneNumber.invalid">
+              <small
+                *ngIf="phoneNumber.hasError('required')"
+                class="form-text text-danger"
+                >Required Input, please inpue a value</small
+              >
+              <small
+                *ngIf="phoneNumber.hasError('minlength')"
+                class="form-text text-danger"
+                >must be not less than 3
+              </small>
+              <small
+                *ngIf="phoneNumber.hasError('maxlength')"
+                class="form-text text-danger"
+                >must be not more than 50
+              </small>
+            </span>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="email">email</label>
+                        <input type="text" class="form-control" id="email" name="email" formControlName="email" />
+
+                        <span *ngIf="email.touched && email.invalid">
+              <small
+                *ngIf="email.hasError('required')"
+                class="form-text text-danger"
+                >Required Input, please inpue a value</small
+              >
+              <small
+                *ngIf="email.hasError('minlength')"
+                class="form-text text-danger"
+                >must be not less than 3
+              </small>
+              <small
+                *ngIf="email.hasError('maxlength')"
+                class="form-text text-danger"
+                >must be not more than 50
+              </small>
+            </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card my-2">
+            <h3 class="p-2">
+                <Address></Address>
+            </h3>
+            <div class="w-100 row card-body">
+                <div class="col-3">
+                    <div class="form-group">
+                        <label for="street">Street</label>
+                        <input type="text" class="form-control" id="street" name="street" formControlName="street" />
+
+                        <span *ngIf="street.touched && street.invalid">
+              <small
+                *ngIf="street.hasError('required')"
+                class="form-text text-danger"
+                >Required Input, please inpue a value</small
+              >
+              <small
+                *ngIf="street.hasError('minlength')"
+                class="form-text text-danger"
+                >must be not less than 3
+              </small>
+              <small
+                *ngIf="street.hasError('maxlength')"
+                class="form-text text-danger"
+                >must be not more than 50
+              </small>
+            </span>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="form-group">
+                        <label for="city">city</label>
+                        <input type="text" class="form-control" id="city" name="city" formControlName="city" />
+
+                        <span *ngIf="city.touched && city.invalid">
+              <small
+                *ngIf="city.hasError('required')"
+                class="form-text text-danger"
+                >Required Input, please inpue a value</small
+              >
+              <small
+                *ngIf="city.hasError('minlength')"
+                class="form-text text-danger"
+                >must be not less than 3
+              </small>
+              <small
+                *ngIf="city.hasError('maxlength')"
+                class="form-text text-danger"
+                >must be not more than 50
+              </small>
+            </span>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" class="form-control" id="state" name="state" formControlName="state" />
+
+                        <span *ngIf="state.touched && state.invalid">
+              <small
+                *ngIf="state.hasError('required')"
+                class="form-text text-danger"
+                >Required Input, please inpue a value</small
+              >
+              <small
+                *ngIf="state.hasError('minlength')"
+                class="form-text text-danger"
+                >must be not less than 3
+              </small>
+              <small
+                *ngIf="state.hasError('maxlength')"
+                class="form-text text-danger"
+                >must be not more than 50
+              </small>
+            </span>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="form-group">
+                        <label for="zipCode">ZipCode</label>
+                        <input type="text" class="form-control" id="zipCode" name="zipCode" formControlName="zipCode" />
+
+                        <span *ngIf="zipCode.touched && zipCode.invalid">
+              <small
+                *ngIf="zipCode.hasError('required')"
+                class="form-text text-danger"
+                >Required Input, please inpue a value</small
+              >
+              <small
+                *ngIf="zipCode.hasError('minlength')"
+                class="form-text text-danger"
+                >must be not less than 3
+              </small>
+              <small
+                *ngIf="zipCode.hasError('maxlength')"
+                class="form-text text-danger"
+                >must be not more than 50
+              </small>
+            </span>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="form-group">
+                        <label for="country">country</label>
+                        <input type="text" class="form-control" id="country" name="country" formControlName="country" />
+
+                        <span *ngIf="country.touched && country.invalid">
+              <small
+                *ngIf="country.hasError('required')"
+                class="form-text text-danger"
+                >Required Input, please inpue a value</small
+              >
+              <small
+                *ngIf="country.hasError('minlength')"
+                class="form-text text-danger"
+                >must be not less than 3
+              </small>
+              <small
+                *ngIf="country.hasError('maxlength')"
+                class="form-text text-danger"
+                >must be not more than 50
+              </small>
+            </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *nzModalFooter class="mx-auto" style="width: fit-content">
+            <button class="btn btn-outline-secondary mx-2" (click)="destroyModal()">
+        Cancel
+      </button>
+            <button type="submit" form="MainForm" class="btn btn-outline-primary">
+        Save
+      </button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,218 @@
+<form id="MainForm" [formGroup]="MainForm" (ngSubmit)="OnFormSubmit()">
+    <div class="px-3 py-2 card">
+        <div class="row">
+            <div class="card w-100">
+                <div class="card-body">
+                    <div class="row" formGroupName="BoxInfo">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="boxNumber">Box Numbers</label>
+                                <input type="number" class="form-control" name="boxNumber" formControlName="boxNumber" id="boxNumber" />
+
+                                <span *ngIf="boxNumber.touched && boxNumber.invalid">
+                  <small
+                    *ngIf="boxNumber.hasError('required')"
+                    class="form-text text-danger"
+                    >Required Input, please inpue a value</small
+                  >
+                  <small
+                    *ngIf="boxNumber.hasError('min')"
+                    class="form-text text-danger"
+                    >must be not less than 1
+                  </small>
+                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="itemsInBox">Items In Box</label>
+                                <input type="number" class="form-control" name="itemsInBox" formControlName="itemsInBox" id="itemsInBox" />
+
+                                <span *ngIf="itemsInBox.touched && itemsInBox.invalid">
+                  <small
+                    *ngIf="itemsInBox.hasError('required')"
+                    class="form-text text-danger"
+                    >Required Input, please inpue a value</small
+                  >
+                  <small
+                    *ngIf="itemsInBox.hasError('min')"
+                    class="form-text text-danger"
+                    >must be not less than 1
+                  </small>
+                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="boxPrice">Box Price</label>
+                                <input type="number" class="form-control" name="boxPrice" formControlName="boxPrice" id="boxPrice" />
+
+                                <!-- <span *ngIf="boxPrice.touched && CalculatedUnitPrice">
+        <small
+          *ngIf="CalculatedUnitPrice > 0"
+          class="form-text text-success"
+        >
+          Unit Price {{ CalculatedUnitPrice }}</small
+        >
+      </span> -->
+
+                                <span *ngIf="boxPrice.touched && boxPrice.invalid">
+                  <small
+                    *ngIf="boxPrice.hasError('required')"
+                    class="form-text text-danger"
+                    >Required Input, please inpue a value</small
+                  >
+                  <small
+                    *ngIf="boxPrice.hasError('min')"
+                    class="form-text text-danger"
+                    >must be not less than 1
+                  </small>
+                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" formGroupName="StockPriceInfo">
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label for="productCode">Product Code </label>
+                                <input type="text" class="form-control" name="productCode" formControlName="productCode" id="productCode" />
+
+                                <span *ngIf="productCode.touched && productCode.invalid">
+                  <small
+                    *ngIf="productCode.hasError('required')"
+                    class="form-text text-danger"
+                    >Required Input, please inpue a value</small
+                  >
+                  <small
+                    *ngIf="productCode.hasError('min')"
+                    class="form-text text-danger"
+                    >must be not less than 1
+                  </small>
+                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="buyingPrice">Buying Price (EGP) </label>
+                                <input type="number" class="form-control" name="buyingPrice" formControlName="buyingPrice" id="buyingPrice" />
+
+                                <span *ngIf="buyingPrice.touched && buyingPrice.invalid">
+                  <small
+                    *ngIf="buyingPrice.hasError('required')"
+                    class="form-text text-danger"
+                    >Required Input, please inpue a value</small
+                  >
+                  <small
+                    *ngIf="buyingPrice.hasError('min')"
+                    class="form-text text-danger"
+                    >must be not less than 1
+                  </small>
+                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="sellingPrice">Selling Price (EGP) </label>
+                                <input type="number" class="form-control" name="sellingPrice" formControlName="sellingPrice" id="sellingPrice" />
+
+                                <span *ngIf="sellingPrice.touched && sellingPrice.invalid">
+                  <small
+                    *ngIf="sellingPrice.hasError('required')"
+                    class="form-text text-danger"
+                    >Required Input, please inpue a value</small
+                  >
+                  <small
+                    *ngIf="sellingPrice.hasError('min')"
+                    class="form-text text-danger"
+                    >must be not less than
+                    {{ buyingPrice.value }}
+                  </small>
+                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="unitPrice">Unit Price (EGP) </label>
+                                <input type="number" class="form-control" name="unitPrice" formControlName="unitPrice" id="unitPrice" />
+
+                                <span class="d-abs" *ngIf="unitPrice.touched && WholesaleProfit > 0">
+                  <small class="form-text text-success">
+                    WholesaleProfit {{ WholesaleProfit }}</small
+                  >
+
+                  <small class="form-text text-success">
+                    SegmentalProfit {{ SegmentalProfit }}</small
+                  >
+
+                  <small class="form-text text-success">
+                    UnitPrice {{ CalculatedUnitPrice.toFixed(2) }}</small
+                  >
+                </span>
+
+                                <span *ngIf="unitPrice.touched && unitPrice.invalid">
+                  <small
+                    *ngIf="unitPrice.hasError('required')"
+                    class="form-text text-danger"
+                    >Required Input, please inpue a value</small
+                  >
+                  <small
+                    *ngIf="unitPrice.hasError('min')"
+                    class="form-text text-danger"
+                    >must be not less than
+                    {{ unitPrice.value }}
+                  </small>
+                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-8">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="productionDate">Production Date </label>
+                                        <nz-date-picker ngDefaultControl class="form-control" [nzFormat]="'dd/MMMM/YYYY'" name="productionDate" id="productionDate" formControlName="productionDate"></nz-date-picker>
+
+                                        <span *ngIf="productionDate.touched && productionDate.invalid">
+                      <small
+                        *ngIf="sellingPrice.hasError('required')"
+                        class="form-text text-danger"
+                        >Required Input, please inpue a value</small
+                      >
+                    </span>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="productionDate">Expiry Date </label>
+                                        <nz-date-picker [nzDisabledDate]="disabledDate" ngDefaultControl class="form-control" [nzFormat]="'dd/MMMM/YYYY'" name="expiryDate" id="expiryDate" formControlName="expiryDate">
+                                        </nz-date-picker>
+                                        <!-- <nz-date-picker [nzDisabledDate]="disabledDate" ngDefaultControl class="form-control" [nzFormat]="'dd/MMMM/YYYY'" name="expiryDate" id="expiryDate" formControlName="expiryDate">
+                          </nz-date-picker> -->
+                                        <span *ngIf="expiryDate.touched && expiryDate.invalid">
+                      <small
+                        *ngIf="expiryDate.hasError('required')"
+                        class="form-text text-danger"
+                        >Required Input, please inpue a value</small
+                      >
+                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mx-auto">
+        <button type="submit" class="btn btn-outline-success">Save</button>
+    </div>
+</form>

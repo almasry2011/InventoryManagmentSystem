@@ -1,0 +1,126 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/* ngx-spinner {
+    position: absolute;
+} */
+
+table {
+    text-align: center;
+}
+
+form input.ng-touched.ng-invalid,
+form textarea.ng-touched.ng-invalid,
+form nz-date-picker.ng-touched.ng-invalid {
+    border: solid red 1px;
+    border-color: #dc3545;
+    padding-right: calc(1.5em + .75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+form input.ng-dirty.ng-valid,
+textarea.ng-dirty.ng-valid,
+form nz-date-picker.ng-dirty.ng-valid {
+    border-color: #00ee47;
+    padding-right: calc(1.5em + .75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+
+/* nz-select.ng-tns-c81-0.ant-select.ant-select-show-arrow.ant-select-show-search.ant-select-allow-clear.ant-select-single.ng-untouched.ng-pristine.ng-valid {
+    border-color: #00ee47;
+    padding-right: calc(1.5em + .75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+} */
+
+nz-select-item.ant-select-selection-item.ng-star-inserted {
+    border-color: #00ee47;
+    padding-right: calc(1.5em + .75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(-.4em + .1875rem) center;
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+nz-select.ng-valid.ng-touched.ng-dirty {
+    border: solid 1px #00ee47;
+    border-radius: 7px;
+}
+
+nz-select.ng-invalid.ng-touched.ng-dirty,
+nz-select.ng-invalid.ng-touched {
+    border: solid 1px red;
+    border-radius: 7px;
+}
+
+small.form-text.text-danger.ng-star-inserted {
+    font-size: inherit;
+}
+
+app-lazy-select {
+    width: 100%;
+    display: grid;
+    height: auto;
+}
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    position: relative;
+    background-color: #fff;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .200rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #6e707e;
+    background-clip: padding-box;
+    border: 1px solid #d1d3e2;
+    border-radius: .35rem;
+}
+
+button.ant-switch {
+    position: absolute;
+    top: 15px;
+    right: 26px;
+}
+
+.new-file-prev {
+    border-radius: 5px;
+    border: dashed green 2px !important;
+    zoom: 1;
+}
+
+.ant-upload-list-picture-card-container {
+    width: 200px !important;
+    height: 200px !important;
+}
+
+.btn-ctr-rm {
+    height: fit-content;
+    display: block;
+    margin-top: 30px;
+}
+
+.ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+    color: #fff;
+    background: #dee2e6;
+    border-color: #1cc88a;
+}
+
+.ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
+    color: #fff;
+    background: #40a9ff33;
+    border-color: #1cc88a;
+}
+
+.card-footer {
+    text-align: center;
+}

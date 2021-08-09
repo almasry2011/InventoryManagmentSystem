@@ -1,0 +1,195 @@
+<form id="MainForm" [formGroup]="MainForm" (ngSubmit)="OnFormSubmit()">
+    <div class="">
+        <div class="card-body">
+            <div class="row" *ngIf="Product.id || UpdateFormMode ">
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="boxNumber">Box Numbers</label>
+                                <input type="number" class="form-control" name="boxNumber" formControlName="boxNumbers" id="boxNumber" />
+
+                                <span *ngIf="boxNumbers.touched && boxNumbers.invalid">
+                  <small *ngIf="boxNumbers.hasError('required')" class="form-text text-danger">Required Input, please
+                    inpue a value</small>
+                  <small *ngIf="boxNumbers.hasError('min')" class="form-text text-danger">must be not less than 1
+                  </small>
+                </span>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="buyingPrice">Buying Price (EGP) </label>
+                                <input type="number" class="form-control" name="buyingPrice" formControlName="buyingPrice" id="buyingPrice" />
+
+                                <span *ngIf="buyingPrice.touched && buyingPrice.invalid">
+                  <small *ngIf="buyingPrice.hasError('required')" class="form-text text-danger">Required Input, please
+                    inpue a value</small>
+                  <small *ngIf="buyingPrice.hasError('min')" class="form-text text-danger">must be not less than 1
+                  </small>
+                </span>
+                            </div>
+                        </div>
+
+
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="boxPrice">Buying Box Price</label>
+                                <input type="number" class="form-control" name="boxPrice" formControlName="boxPrice" id="boxPrice" />
+
+                                <span *ngIf="boxPrice.touched && CalculatedUnitPrice">
+                  <small *ngIf="CalculatedUnitPrice > 0" class="form-text text-success">
+                    Unit Price {{ CalculatedUnitPrice }}</small>
+                </span>
+
+                                <span *ngIf="boxPrice.touched && boxPrice.invalid">
+                  <small *ngIf="boxPrice.hasError('required')" class="form-text text-danger">Required Input, please
+                    inpue a value</small>
+                  <small *ngIf="boxPrice.hasError('min')" class="form-text text-danger">must be not less than 1
+                  </small>
+                </span>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="productionDate">Production Date </label>
+                                <nz-date-picker ngDefaultControl class="form-control" [nzFormat]="'dd/MMMM/YYYY'" name="productionDate" id="productionDate" formControlName="productionDate"></nz-date-picker>
+
+                                <span *ngIf="productionDate.touched && productionDate.invalid">
+                  <small *ngIf="productionDate.hasError('required')" class="form-text text-danger">Required Input,
+                    please inpue a value</small>
+                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="productionDate">Expiry Date </label>
+                                <nz-date-picker [nzDisabledDate]="disabledDate" ngDefaultControl class="form-control" [nzFormat]="'dd/MMMM/YYYY'" name="expiryDate" id="expiryDate" formControlName="expiryDate">
+                                </nz-date-picker>
+                                <!-- <nz-date-picker [nzDisabledDate]="disabledDate" ngDefaultControl class="form-control" [nzFormat]="'dd/MMMM/YYYY'" name="expiryDate" id="expiryDate" formControlName="expiryDate">
+        </nz-date-picker> -->
+                                <span *ngIf="expiryDate.touched && expiryDate.invalid">
+                  <small *ngIf="expiryDate.hasError('required')" class="form-text text-danger">Required Input, please
+                    inpue a value</small>
+                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <button type="submit" class="btn btn-outline-success d-flex mx-auto">{{SubmitBtnValue}}</button>
+
+
+
+
+                </div>
+
+                <div class="col-4 card p-0">
+                    <div class="card-header">{{ Product.name }}</div>
+                    <div class="row product-info w-100 px-4">
+                        <span>Box Items : <b>{{ Product.itemsInBox }} Items</b>
+            </span>
+                        <br />
+                        <span>
+              Selling Box Price : <b>{{Product.sellingBoxPrice }}
+                (EGP)</b>
+            </span>
+                        <br />
+                        <span>
+              Selling Unit Price : <b>{{ Product.sellingUnitPrice
+                }} (EGP)</b>
+            </span>
+
+                        <hr />
+                        <hr />
+                        <hr />
+                        <span># Buying Price : <b>{{ buyingPrice.value }} (EGP)</b>
+            </span>
+                        <span># Stock : {{ boxNumbers.value }} Boxs X
+              {{ Product.itemsInBox }} Items => <b>{{ Stock }} Items</b></span>
+                        <span># Unit Price (Wholesale) =><b>{{ CalculatedUnitPrice.toFixed(2) }} (EGP)</b>
+            </span>
+                        <span> # Wholesale Box Profit => <b>{{ WholesaleBoxProfit.toFixed(2) }} (EGP)</b> </span>
+                        <span> # Segmental Profit => <b>{{ SegmentalProfit.toFixed(2) }} (EGP)</b> </span>
+
+
+
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div class=" mt-3 " *ngIf="trxLines?.length != 0">
+                <table class="table table-striped table-bordered w-100">
+                    <thead>
+                        <tr>
+                            <!-- <th>Buying Price</th>
+                            <th>Selling Price</th>
+                            <th>Unit Price (Wholesale)</th>
+                            <th>Unit Price (segmental)</th>
+                            <th>Profit (Wholesale)</th>
+                            <th>Profit (segmental)</th>
+                            <th>Stock</th>
+                            <th>Expiry Date</th>
+                            <th></th> -->
+                            <th>Product</th>
+                            <th>Stock</th>
+                            <th>Buying Price</th>
+                            <th>Profit (Wholesale)</th>
+                            <th>Profit (segmental)</th>
+                            <th>Expiry Date</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let details of trxLines" [ngClass]="{
+                'd-none zoom-out': details.rowStatus == 'delete'
+              }">
+
+
+                            <td>{{ details.productName }}</td>
+                            <td>{{ details.stock }}</td>
+
+
+                            <td>{{ details.buyingPrice }}</td>
+                            <td>{{ details.wholesaleProfit }}</td>
+                            <td>{{ details.segmentalProfit }}</td>
+
+                            <!-- <td>{{ details.wholesaleUnitPrice. }}</td>
+                              -->
+
+                            <td>{{ details.expiryDate | date }}</td>
+                            <td>
+                                <div class="btn-group mt-2" role="group">
+                                    <button type="button" (click)="EditRow(details)" class="btn btn-outline-primary">
+                    <i class="fa fa-edit"></i>
+                  </button>
+                                    <button type="button" (click)="DeletRow(details)" class="btn btn-outline-danger">
+                    <i class="fa fa-trash-alt"></i>
+                  </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</form>
