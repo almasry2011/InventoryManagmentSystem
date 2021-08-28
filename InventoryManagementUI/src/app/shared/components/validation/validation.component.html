@@ -1,0 +1,20 @@
+
+  <span *ngIf="controle.touched && controle.invalid">
+      <small
+        *ngIf="controle.hasError(ValRules.Required)"
+        class="form-text text-danger" >  {{GetTranslation(TransKeys.RequiredKEY)}} </small
+      >
+      <small
+        *ngIf="controle.hasError(ValRules.Minlength)" class="form-text text-danger" > {{GetTranslation(TransKeys.MINLENGTHKEY,minlength)}} </small>
+      <small
+        *ngIf="controle.hasError(ValRules.Maxlength)"
+        class="form-text text-danger"
+        >   {{GetTranslation(TransKeys.MAXLENGTHKEY,maxlength)}}      
+      </small>
+ 
+      <small
+      *ngIf="controle.hasError(ValRules.ArabicOnly)"
+      class="form-text text-danger"
+      >{{GetTranslation(TransKeys.ARABICONLYKEY)}}      
+    </small>
+</span>

@@ -21,10 +21,11 @@ import { NzMessageModule } from 'ng-zorro-antd/message';
 import { HttpInterceptorService } from '../core/Interceptor/http-interceptor.service';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+import { ValidationComponent } from './components/validation/validation.component';
 
 
 @NgModule({
-  declarations: [LazySelectComponent, DatePickerComponent, FileUploaderComponent],
+  declarations: [LazySelectComponent, DatePickerComponent, FileUploaderComponent, ValidationComponent],
   imports: [CommonModule, NzSelectModule,
     FormsModule,
     DataTablesModule,
@@ -43,7 +44,7 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
     NzRadioModule
 
   ],
-  exports: [LazySelectComponent, NzRadioModule, FileUploaderComponent, DatePickerComponent, DataTablesModule, NzMessageModule, NzDatePickerModule, NzUploadModule, NzSwitchModule, FormsModule, NzSwitchModule, NzModalModule, ReactiveFormsModule, HttpClientModule, NgxSpinnerModule, ToastrModule, NzSpinModule, NzCheckboxModule],
+  exports: [LazySelectComponent, NzRadioModule,ValidationComponent, FileUploaderComponent, DatePickerComponent, DataTablesModule, NzMessageModule, NzDatePickerModule, NzUploadModule, NzSwitchModule, FormsModule, NzSwitchModule, NzModalModule, ReactiveFormsModule, HttpClientModule, NgxSpinnerModule, ToastrModule, NzSpinModule, NzCheckboxModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

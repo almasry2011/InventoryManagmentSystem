@@ -44,7 +44,7 @@ namespace InventoryManagement.Service.Implementation
                     Purchase = _uow._transactionRepo.GetAll(s => s.TransactionType == TransactionType.Purchase).Sum(s => s.Total),
                     Sales = _uow._transactionRepo.GetAll(s => s.TransactionType == TransactionType.Sales).Sum(s => s.Total),
 
-                    LWPurchase = _uow._transactionRepo.GetAll(s=> LastWeekPurchaseCraiteria(s)).Sum(s => s.Total),
+                   // LWPurchase = _uow._transactionRepo.GetAll(s=> LastWeekPurchaseCraiteria(s)).Sum(s => s.Total),
 
                     //_uow._transactionRepo.GetAll(s => s.TransactionType == TransactionType.Purchase
                     //&& s.TransactionDate >= lastFriday && s.TransactionDate <= NextFriday).Sum(s => s.Total),
@@ -84,14 +84,14 @@ namespace InventoryManagement.Service.Implementation
 
       //  Func<Employee, bool> isNewAndSurvived = e => isActiveEmployee(e) && isNewEmployee(e);
 
-        Func<Transaction, bool> LastWeekPurchaseCraiteria( )
-        {
+        //Func<Transaction, bool> LastWeekPurchaseCraiteria( )
+        //{
           
 
-            return x => x.
+        //    //return x => x.
             
-            //x % n == 0;
-        }
+        //    //x % n == 0;
+        //}
 
 
 

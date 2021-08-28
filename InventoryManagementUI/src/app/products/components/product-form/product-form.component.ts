@@ -9,6 +9,7 @@ import { FormUtils } from 'src/app/core/FormUtils';
 import { ProductModel } from '../../models/product-model';
 import { ProductDetail } from '../../models/ProductDetail';
 import { ProductsService } from '../../services/products.service';
+import { CustomValidation } from 'src/app/shared/validators/CustomValidation';
 
 @Component({
   selector: 'app-product-form',
@@ -17,6 +18,11 @@ import { ProductsService } from '../../services/products.service';
 })
 export class ProductFormComponent implements OnInit {
   @Input() IsCreateForm: boolean = true;
+
+ 
+
+  
+
 
   BoxCheked: boolean = false;
   multpleMode: boolean = false;
@@ -107,7 +113,7 @@ export class ProductFormComponent implements OnInit {
           // this.product = prod.data;
 
           this.whInitVal = { name: prod.data.warehouseStr };
-          this.catInitVal = { name: prod.data.productCategoryStr };
+        //  this.catInitVal = { name: prod.data.productCategoryStr };
           this.binInitVal = { name: prod.data.warehouseBinStr };
 
           // prod.data.boxNumber > 0 ? this.BoxChangeEvent(true) : this.BoxChangeEvent(false);
@@ -148,12 +154,12 @@ export class ProductFormComponent implements OnInit {
   catPlaceHolder = 'Please Select Category';
   catDisabled: boolean = false;
   catURl: string = '/GetFilteredCategories'
-  catChanged(event: any) {
-    console.log(event);
-    FormUtils.SetFormControleValue(this.productCategoryId, event.id);
-    //this.productCategoryId.setValue(event.id);
-    //this.BasicInfo.controls['productCategoryId'].setValue(event.id);
-  }
+  // catChanged(event: any) {
+  //   console.log(event);
+  //   FormUtils.SetFormControleValue(this.productCategoryId, event.id);
+  //   //this.productCategoryId.setValue(event.id);
+  //   //this.BasicInfo.controls['productCategoryId'].setValue(event.id);
+  // }
 
   //
   binInitVal: any = null;
@@ -172,8 +178,8 @@ export class ProductFormComponent implements OnInit {
 
   initForm(model?: ProductModel) {
     this.id = new FormControl((model != null && !this.IsCreateForm) ? model.id : 0);
-    this.name = new FormControl((model != null && !this.IsCreateForm) ? model.name : '', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)]));
-    this.description = new FormControl((model != null && !this.IsCreateForm) ? model.description : '', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(200)]));
+    this.name = new FormControl((model != null && !this.IsCreateForm) ? model.name : '', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(50) ,CustomValidation.ArabicOnly   ]));
+    this.description = new FormControl((model != null && !this.IsCreateForm) ? model.description : '', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(200)]));
 
 
     this.numberInStock = new FormControl((model != null && !this.IsCreateForm) ? model.numberInStock : 0, Validators.compose([Validators.required, Validators.min(1)]));

@@ -11,6 +11,16 @@
             <app-header></app-header>
             <!-- Begin Page Content -->
             <div class="container-fluid">
+
+
+                <button (click)="changeLangage('ar')">{{'COMMON.ARABIC-KEY' |translate}}</button>
+<button (click)="changeLangage('en')">{{'COMMON.ENGLISH-KEY' |translate}}</button>
+                <div>
+                    <h3 > {{ 'Hello' | translate }}  </h3>
+                    <p >{{ 'Test' | translate }} </p>
+                 </div>
+                
+
                 <router-outlet></router-outlet>
             </div>
             <!-- /.container-fluid -->

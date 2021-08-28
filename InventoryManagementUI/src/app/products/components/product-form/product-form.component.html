@@ -12,7 +12,7 @@
                             <div class="form-group">
                                 <label for="ProductName">Name</label>
                                 <input type="text" class="form-control" id="ProductName" name="ProductName" formControlName="name" />
-
+<!-- 
                                 <span *ngIf="name.touched && name.invalid">
                   <small
                     *ngIf="name.hasError('required')"
@@ -29,15 +29,29 @@
                     class="form-text text-danger"
                     >must be not more than 50
                   </small>
-                </span>
+
+                  <small
+                  *ngIf="name.hasError(ValMessg.notArabic)"
+                  class="form-text text-danger"
+                  >must be arabic only
+                </small>
+
+
+
+
+
+                </span> -->
+                <app-validation [controle]="name" ></app-validation>
                             </div>
                         </div>
 
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="productCategoryId"> Category </label>
-                                <app-lazy-select [selectedValue]="catInitVal" ngDefaultControl formControlName="productCategoryId" name="productCategoryId" id="warehouseId" [URL]="catURl" [IsRequired]="true" [Disabled]="catDisabled" [MultiMode]="MultiMode" [pageSize]="pageSize" [PlaceHolder]="catPlaceHolder"
-                                    (selectedOptionChange)="catChanged($event)"></app-lazy-select>
+                                <app-lazy-select [selectedValue]="catInitVal"   [URL]="catURl" [IsRequired]="true" [Disabled]="catDisabled" [MultiMode]="MultiMode" [pageSize]="pageSize" [PlaceHolder]="catPlaceHolder"
+                                   [formGroup]="MainForm" [formControlName]="'productCategoryId'"
+                                
+                                ></app-lazy-select>
                             </div>
                         </div>
 

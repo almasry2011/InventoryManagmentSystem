@@ -1,0 +1,22 @@
+{ 
+    "Hello": "Hello",
+    "Test": "T E X T",
+ 
+
+ "VALIDATION-MESSAGES": {
+   "Required-KEY" :"This Field Is Required",
+   "ARABIC-ONLY-KEY":" This Field Accept only arabic",
+   "MIN-LENGTH-KEY":"must be not less than {{param1}}",
+   "MAX-LENGTH-KEY":"must be not more than {{param1}}"
+
+
+ },
+ "COMMON": {
+   "LANG-KEY": "Language",
+   "ARABIC-KEY": "Arabic",
+   "ENGLISH-KEY": "English"
+ }
+
+
+
+}

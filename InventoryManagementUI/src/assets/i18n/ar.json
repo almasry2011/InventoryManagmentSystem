@@ -1,0 +1,23 @@
+{ 
+    "Hello": "مرحبا",
+    "Test": "مجرد نص",
+ 
+
+ "VALIDATION-MESSAGES": {
+   "Required-KEY" :"هذا الحقل اجباري",
+   "ARABIC-ONLY-KEY":"هذا الحقل لا يقبل الا اللغه العربيه",
+   "MIN-LENGTH-KEY":"يجب الا يقل عن  {{param1}}",
+   "MAX-LENGTH-KEY":"يجب الا يزيد عن  {{param1}}"
+
+
+
+ },
+ "COMMON": {
+   "LANG-KEY": "اللغة",
+   "ARABIC-KEY": "العربية",
+   "ENGLISH-KEY": "الإنجليزية"
+ }
+
+
+
+}

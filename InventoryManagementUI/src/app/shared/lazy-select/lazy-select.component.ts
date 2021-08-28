@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { NzSelectModeType } from 'ng-zorro-antd/select';
+import { FormControl, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -11,6 +12,11 @@ import { NzSelectModeType } from 'ng-zorro-antd/select';
   styleUrls: ['./lazy-select.component.css']
 })
 export class LazySelectComponent implements OnInit {
+
+
+  @Input()  formGroup!: FormGroup;
+  @Input() formControlName !: string;
+    
 
   @Input() PlaceHolder: string = "Please Select";
   @Input() URL: string | undefined;
@@ -39,6 +45,7 @@ export class LazySelectComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    debugger
     // this.selectedUser = { name: 'AMR' }
     // if (this.resetAfterSelect) {
     //   this.selectedValue = {};
