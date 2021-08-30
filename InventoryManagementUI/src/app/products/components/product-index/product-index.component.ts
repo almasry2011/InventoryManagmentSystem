@@ -24,7 +24,7 @@ export class ProductIndexComponent extends BaseComponent<ProductModel> implement
 
     this.loadMore();
 
-    //debugger;
+     debugger;
     let columns = [
       { data: 'id' },
       { data: 'name' },

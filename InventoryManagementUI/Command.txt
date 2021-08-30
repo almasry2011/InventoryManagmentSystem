@@ -3,6 +3,8 @@ npm install bootstrap --save to add to pakage.json autom
 
 ng add @ng-bootstrap/schematics
 
+ng serve --configuration development
+
 
 npm install @fortawesome/angular-fontawesome --save 
 
