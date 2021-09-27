@@ -18,7 +18,7 @@ export class HttpInterceptorService {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    debugger
+    //debugger
     //  this.spinner.show();
     if (localStorage.getItem('jwt') != null) {
       const clonedReq = req.clone({

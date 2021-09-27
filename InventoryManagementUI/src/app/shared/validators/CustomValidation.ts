@@ -54,8 +54,10 @@ export enum ValidationRules {
     EnglishOnly='notEnglish',
     NumbersOnly='notNumbers',
     Maxlength='maxlength',
-    Required='required',
     Minlength='minlength',
+    Min='min',
+    Max='max',
+    Required='required',
 }
 
 
@@ -69,12 +71,14 @@ ARABICONLYKEY= "VALIDATION-MESSAGES.ARABIC-ONLY-KEY",
 MINLENGTHKEY= "VALIDATION-MESSAGES.MIN-LENGTH-KEY",
 MAXLENGTHKEY= "VALIDATION-MESSAGES.MAX-LENGTH-KEY",
  
+MINKEY= "VALIDATION-MESSAGES.MIN-KEY",
+MAXKEY= "VALIDATION-MESSAGES.MAX-KEY",
 
 LANGKEY= "COMMON.LANG-KEY",
 ARABICKEY= "COMMON.ARABIC-KEY",
 ENGLISHKEY= "COMMON.ENGLISH-KEY",
- 
+DROPDOWNPLACEHOLDERKEY= "COMMON.DROPDOWN-PLACEHOLDER-KEY"
 
- 
+    
     
     }

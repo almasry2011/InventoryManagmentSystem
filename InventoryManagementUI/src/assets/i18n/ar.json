@@ -7,15 +7,17 @@
    "Required-KEY" :"هذا الحقل اجباري",
    "ARABIC-ONLY-KEY":"هذا الحقل لا يقبل الا اللغه العربيه",
    "MIN-LENGTH-KEY":"يجب الا يقل عن  {{param1}}",
-   "MAX-LENGTH-KEY":"يجب الا يزيد عن  {{param1}}"
+   "MAX-LENGTH-KEY":"يجب الا يزيد عن  {{param1}}",
 
-
+   "MAX":"يجب ان يكون اصغر من {{param1}}",
+   "MIN":"يجب ان يكون اكبر من {{param1}}"
 
  },
  "COMMON": {
    "LANG-KEY": "اللغة",
    "ARABIC-KEY": "العربية",
-   "ENGLISH-KEY": "الإنجليزية"
+   "ENGLISH-KEY": "الإنجليزية",
+   "DROPDOWN-PLACEHOLDER-KEY":"برجاء الاختيار "
  }
 
 

@@ -1,11 +1,11 @@
 import { Injector } from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
 import { param } from "jquery";
-import {  ValidationRules } from "../validators/CustomValidation";
+import {  TransKeys, ValidationRules } from "../validators/CustomValidation";
 
 
 export    class FormBase {
-  
+    public TransKeys=TransKeys;
     protected  readonly  translation  : TranslateService;
      
  
@@ -25,9 +25,9 @@ public ValRules=ValidationRules;
 
     GetTranslation(key:string,param1:any=null,param2:any=null){
         debugger;
-        // let d=this.translation.get(key)      .subscribe((data:any)=> {
-        //     console.log(data);
-        //    });
+        let d=this.translation.get(key)      .subscribe((data:any)=> {
+          console.log(data);
+          });
         // console.log("-----------------trans----------------------")
         // console.log(d)
         // console.log("-----------------trans----------------------")

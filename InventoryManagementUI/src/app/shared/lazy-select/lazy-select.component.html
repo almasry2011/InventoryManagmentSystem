@@ -1,30 +1,23 @@
 
-  <form [formGroup]="formGroup">
+        <nz-select for (nzBlur)="filter != null ? loadMore() : ''"  [formControl]="controle"    [required]="IsRequired"   (nzScrollToBottom)="loadMore()" 
+        [nzPlaceHolder]=" 'COMMON.DROPDOWN-PLACEHOLDER-KEY' | translate"
+        [nzShowArrow]="true"
+        [nzServerSearch]="true" 
+        nzAllowClear
+         [nzDisabled]="Disabled" 
+         [nzShowSearch]="true" 
+         [nzMode]="mode" 
+         (ngModelChange)="changed($event)" 
+         (nzOnSearch)="search($event)" 
+         [nzDropdownRender]="renderTemplate">
+            <nz-option selected *ngIf="optionList.length <= 0 && selectedValue != null" [nzValue]="selectedValue" [nzLabel]="selectedValue.name"></nz-option>
+            <nz-option *ngFor="let o of optionList" [nzValue]="o.id" [nzLabel]="o.name"></nz-option>
+        </nz-select>
+        <ng-template #renderTemplate>
+            <ng-template #indicatorTemplate><i nz-icon nzType="loading"></i></ng-template>
+            <nz-spin [nzSpinning]="!isLoading" nzSimple [nzIndicator]="indicatorTemplate">
+            </nz-spin>
+        </ng-template>
 
-
-
-    <nz-select for (nzBlur)="filter != null ? loadMore() : ''"     [required]="IsRequired"   (nzScrollToBottom)="loadMore()" [nzPlaceHolder]="PlaceHolder" nzAllowClear [nzShowArrow]="true"
-       
-   
-    [formControlName]="formControlName"
-        [name]="formControlName"
-        [id]="formControlName"
-    
-    [nzServerSearch]="true" nzAllowClear [nzDisabled]="Disabled" [nzShowSearch]="true" [nzMode]="mode" (ngModelChange)="changed($event)" (nzOnSearch)="search($event)" [nzDropdownRender]="renderTemplate">
-        <nz-option selected *ngIf="optionList.length <= 0 && selectedValue != null" [nzValue]="selectedValue" [nzLabel]="selectedValue.name"></nz-option>
-    
-        <nz-option *ngFor="let o of optionList" [nzValue]="o.id" [nzLabel]="o.name"></nz-option>
-        
-    </nz-select>
-    <ng-template #renderTemplate>
-        <ng-template #indicatorTemplate><i nz-icon nzType="loading"></i></ng-template>
-        <nz-spin [nzSpinning]="!isLoading" nzSimple [nzIndicator]="indicatorTemplate">
-        </nz-spin>
-    </ng-template>
-    
-    <!-- <nz-select name="select-validate" [ngModel]="'Option 2'" [(ngModel)]="selectedUser">
-        <nz-option [nzValue]="selectedUser" nzLabel="Option 1"></nz-option>
-        <nz-option nzValue="Option 2" nzLabel="Option 2"></nz-option>
-    </nz-select> -->
-    </form>
-    
+ 
+ 

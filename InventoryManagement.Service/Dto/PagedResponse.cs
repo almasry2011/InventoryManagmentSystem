@@ -54,6 +54,7 @@ namespace InventoryManagement.Service.Dto
         public int PageNumber { get; set; }
         public int PageSize { get; set; } = 5;
         public string Search { get; set; }
+        public int Id  { get; set; }
         public FilterDto Filter  { get; set; }
 
     }

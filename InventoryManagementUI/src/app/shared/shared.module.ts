@@ -1,7 +1,7 @@
 import { LazySelectComponent } from './lazy-select/lazy-select.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -22,7 +22,12 @@ import { HttpInterceptorService } from '../core/Interceptor/http-interceptor.ser
 import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { ValidationComponent } from './components/validation/validation.component';
-
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+ 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, "./../../assets/i18n/", ".json");
+}
 
 @NgModule({
   declarations: [LazySelectComponent, DatePickerComponent, FileUploaderComponent, ValidationComponent],
@@ -41,10 +46,17 @@ import { ValidationComponent } from './components/validation/validation.componen
     NzMessageModule,
     NzUploadModule,
     NzCheckboxModule,
-    NzRadioModule
+    NzRadioModule,
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
 
   ],
-  exports: [LazySelectComponent, NzRadioModule,ValidationComponent, FileUploaderComponent, DatePickerComponent, DataTablesModule, NzMessageModule, NzDatePickerModule, NzUploadModule, NzSwitchModule, FormsModule, NzSwitchModule, NzModalModule, ReactiveFormsModule, HttpClientModule, NgxSpinnerModule, ToastrModule, NzSpinModule, NzCheckboxModule],
+  exports: [LazySelectComponent, NzRadioModule,ValidationComponent,TranslateModule, FileUploaderComponent, DatePickerComponent, DataTablesModule, NzMessageModule, NzDatePickerModule, NzUploadModule, NzSwitchModule, FormsModule, NzSwitchModule, NzModalModule, ReactiveFormsModule, HttpClientModule, NgxSpinnerModule, ToastrModule, NzSpinModule, NzCheckboxModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

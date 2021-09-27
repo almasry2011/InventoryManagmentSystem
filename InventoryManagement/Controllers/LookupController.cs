@@ -52,7 +52,7 @@ namespace InventoryManagement.Controllers
         [Route("GetFilteredCategories")]
         public async Task<IActionResult> GetFilteredCategories(GetAllRequest<Category, Nullable<int>> request)
         {
-            var querable = _uow._categoryRepo.GetAll();
+            var querable = _uow._categoryRepo.GetAll(s=> request.Id>0 ?  s.Id==request.Id : true);
 
             var PaggedData = await querable.Skip((request.PageSize * request.PageNumber)).Take(request.PageSize)
                 .Select(s=>new Category {CategoryName=s.CategoryName,Id=s.Id }).ToListAsync();

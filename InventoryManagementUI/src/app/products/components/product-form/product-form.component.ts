@@ -112,9 +112,9 @@ export class ProductFormComponent implements OnInit {
         if (prod.success) {
           // this.product = prod.data;
 
-          this.whInitVal = { name: prod.data.warehouseStr };
+         // this.whInitVal = { name: prod.data.warehouseStr };
         //  this.catInitVal = { name: prod.data.productCategoryStr };
-          this.binInitVal = { name: prod.data.warehouseBinStr };
+        //  this.binInitVal = { name: prod.data.warehouseBinStr };
 
           // prod.data.boxNumber > 0 ? this.BoxChangeEvent(true) : this.BoxChangeEvent(false);
           // this.BoxCheked = prod.data.boxNumber > 0 ? true : false;
@@ -135,24 +135,24 @@ export class ProductFormComponent implements OnInit {
 
 
   //#Fourm Lookups
-  whInitVal: any = null;
-  whPlaceHolder = 'Please Select Warehouse';
-  whDisabled: boolean = false;
-  MultiMode: boolean = false;
+  //whInitVal: any = null;
+  //whPlaceHolder = 'Please Select Warehouse';
+  //whDisabled: boolean = false;
+  //MultiMode: boolean = false;
   pageSize: number = 10;
   whURl: string = '/Warehouse/GetAllFiltered'
 
-  whChanged(event: any) {
-    console.log(event);
-    FormUtils.SetFormControleValue(this.warehouseId, event.id);
-    this.binfilter = event.id;
-  }
+  // whChanged(event: any) {
+  //   console.log(event);
+  //   FormUtils.SetFormControleValue(this.warehouseId, event.id);
+  //   this.binfilter = event.id;
+  // }
 
   //
-  catInitVal: any = null;
+  //catInitVal: any = null;
 
-  catPlaceHolder = 'Please Select Category';
-  catDisabled: boolean = false;
+  //catPlaceHolder = 'Please Select Category';
+  //catDisabled: boolean = false;
   catURl: string = '/GetFilteredCategories'
   // catChanged(event: any) {
   //   console.log(event);
@@ -162,17 +162,17 @@ export class ProductFormComponent implements OnInit {
   // }
 
   //
-  binInitVal: any = null;
-  binPlaceHolder = 'Please Select Bin';
-  binDisabled: boolean = false;
+ // binInitVal: any = null;
+  //binPlaceHolder = 'Please Select Bin';
+  //binDisabled: boolean = false;
   binURl: string = '/GetFilteredWarehouseBins'
-  binfilter = 0;
+  //binfilter = 0;
 
   //this.warehouseId?.value ? this.warehouseId.value : 0;
-  binChanged(event: any) {
-    console.log(event);
-    FormUtils.SetFormControleValue(this.warehouseBinId, event.id);
-  }
+  // binChanged(event: any) {
+  //   console.log(event);
+  //   FormUtils.SetFormControleValue(this.warehouseBinId, event.id);
+  // }
 
 
 
@@ -225,6 +225,7 @@ export class ProductFormComponent implements OnInit {
 
     this.MainForm = this.fb.group({
       BasicInfo: this.BasicInfo,
+    //  productCategoryId: this.productCategoryId,
       //  StockPriceInfo: this.StockPriceInfo,
       //  BoxInfo: this.BoxInfo,
     });

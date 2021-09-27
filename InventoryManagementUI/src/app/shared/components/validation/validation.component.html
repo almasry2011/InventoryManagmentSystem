@@ -17,4 +17,14 @@
       class="form-text text-danger"
       >{{GetTranslation(TransKeys.ARABICONLYKEY)}}      
     </small>
+
+    <small
+    *ngIf="controle.hasError(ValRules.Min)" class="form-text text-danger" > {{GetTranslation(TransKeys.MINKEY,min)}} </small>
+  <small
+    *ngIf="controle.hasError(ValRules.Max)"
+    class="form-text text-danger"
+    >   {{GetTranslation(TransKeys.MAXKEY,max)}}      
+  </small>
+
+
 </span>

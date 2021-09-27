@@ -12,49 +12,43 @@
                             <div class="form-group">
                                 <label for="ProductName">Name</label>
                                 <input type="text" class="form-control" id="ProductName" name="ProductName" formControlName="name" />
-<!-- 
-                                <span *ngIf="name.touched && name.invalid">
-                  <small
-                    *ngIf="name.hasError('required')"
-                    class="form-text text-danger"
-                    >Required Input, please inpue a value</small
-                  >
-                  <small
-                    *ngIf="name.hasError('minlength')"
-                    class="form-text text-danger"
-                    >must be not less than 3
-                  </small>
-                  <small
-                    *ngIf="name.hasError('maxlength')"
-                    class="form-text text-danger"
-                    >must be not more than 50
-                  </small>
 
-                  <small
-                  *ngIf="name.hasError(ValMessg.notArabic)"
-                  class="form-text text-danger"
-                  >must be arabic only
-                </small>
-
-
-
-
-
-                </span> -->
                 <app-validation [controle]="name" ></app-validation>
+                            </div>
+                        </div>
+
+                         <div class="col-4">
+                            <div class="form-group">
+                                <label for="productCategoryId"> Category </label>
+                                <app-lazy-select [controle]="productCategoryId" [URL]="catURl"  ></app-lazy-select>
+                                <app-validation [controle]="productCategoryId" ></app-validation>
+
                             </div>
                         </div>
 
                         <div class="col-4">
                             <div class="form-group">
-                                <label for="productCategoryId"> Category </label>
-                                <app-lazy-select [selectedValue]="catInitVal"   [URL]="catURl" [IsRequired]="true" [Disabled]="catDisabled" [MultiMode]="MultiMode" [pageSize]="pageSize" [PlaceHolder]="catPlaceHolder"
-                                   [formGroup]="MainForm" [formControlName]="'productCategoryId'"
-                                
-                                ></app-lazy-select>
+                                <label for="warehouseId"> Warehouse </label>
+                                <app-lazy-select [controle]="warehouseId" [URL]="catURl"  ></app-lazy-select>
+                                <app-validation [controle]="warehouseId" ></app-validation>
+
                             </div>
                         </div>
 
+
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="warehouseBinId"> BIN </label>
+                                <app-lazy-select [controle]="warehouseBinId" [URL]="catURl"  ></app-lazy-select>
+                                <app-validation [controle]="warehouseBinId" ></app-validation>
+
+                            </div>
+                        </div>
+<!--
+
+
+  [controle]="productCategoryId"  [URL]="catURl" [IsRequired]="true" [Disabled]="catDisabled" [MultiMode]="MultiMode" [pageSize]="pageSize" [PlaceHolder]="catPlaceHolder"
+                                   [formGroup]="MainForm" [formControlName]="'productCategoryId'"
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="warehouseId"> Warehouse </label>
@@ -72,25 +66,14 @@
                                     (selectedOptionChange)="binChanged($event)">
                                 </app-lazy-select>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="itemsInBox">Items In Box</label>
                                 <input type="number" class="form-control" name="itemsInBox" formControlName="itemsInBox" id="itemsInBox" />
 
-                                <span *ngIf="itemsInBox.touched && itemsInBox.invalid">
-                  <small
-                    *ngIf="itemsInBox.hasError('required')"
-                    class="form-text text-danger"
-                    >Required Input, please inpue a value</small
-                  >
-                  <small
-                    *ngIf="itemsInBox.hasError('min')"
-                    class="form-text text-danger"
-                    >must be not less than 1
-                  </small>
-                </span>
+                                <app-validation [controle]="itemsInBox" ></app-validation>
                             </div>
                         </div>
 
@@ -98,19 +81,8 @@
                             <div class="form-group">
                                 <label for="itemsInBox">Selling BoxPrice</label>
                                 <input type="number" class="form-control" name="sellingBoxPrice" formControlName="sellingBoxPrice" id="sellingBoxPrice" />
-
-                                <span *ngIf="sellingBoxPrice.touched && sellingBoxPrice.invalid">
-                  <small
-                    *ngIf="sellingBoxPrice.hasError('required')"
-                    class="form-text text-danger"
-                    >Required Input, please inpue a value</small
-                  >
-                  <small
-                    *ngIf="sellingBoxPrice.hasError('min')"
-                    class="form-text text-danger"
-                    >must be not less than 1
-                  </small>
-                </span>
+                                <app-validation [controle]="sellingBoxPrice" ></app-validation>
+                
                             </div>
                         </div>
 
@@ -119,18 +91,7 @@
                                 <label for="sellingUnitPrice">Selling UnitPrice</label>
                                 <input type="number" class="form-control" name="sellingUnitPrice" formControlName="sellingUnitPrice" id="sellingUnitPrice" />
 
-                                <span *ngIf="sellingUnitPrice.touched && sellingUnitPrice.invalid">
-                  <small
-                    *ngIf="sellingUnitPrice.hasError('required')"
-                    class="form-text text-danger"
-                    >Required Input, please inpue a value</small
-                  >
-                  <small
-                    *ngIf="itemsInBox.hasError('min')"
-                    class="form-text text-danger"
-                    >must be not less than 1
-                  </small>
-                </span>
+                                <app-validation [controle]="sellingUnitPrice" ></app-validation>
                             </div>
                         </div>
 
@@ -138,23 +99,7 @@
                             <div class="form-group">
                                 <label for="Description">Description</label>
                                 <textarea class="form-control" id="Description" name="Description" formControlName="description" rows="3"></textarea>
-                                <span *ngIf="description.touched && description.invalid">
-                  <small
-                    *ngIf="description.hasError('required')"
-                    class="form-text text-danger"
-                    >Required Input, please inpue a value</small
-                  >
-                  <small
-                    *ngIf="description.hasError('minlength')"
-                    class="form-text text-danger"
-                    >must be not less than 3
-                  </small>
-                  <small
-                    *ngIf="description.hasError('maxlength')"
-                    class="form-text text-danger"
-                    >must be not more than 200
-                  </small>
-                </span>
+                                <app-validation [controle]="description" ></app-validation>
                             </div>
                         </div>
 

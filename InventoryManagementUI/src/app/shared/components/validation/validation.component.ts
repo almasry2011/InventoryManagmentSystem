@@ -13,9 +13,11 @@ export class ValidationComponent extends FormBase implements OnInit,OnDestroy  {
   @Input() controle!: FormControl;
   minlength: number = 0;
   maxlength: number = 0;
+  min: number = 0;
+  max: number = 0;
   subscription$!: Subscription;
 
- public TransKeys=TransKeys;
+
 
   constructor(injector: Injector) {
     super(injector);
@@ -23,7 +25,7 @@ export class ValidationComponent extends FormBase implements OnInit,OnDestroy  {
   ngOnInit(): void {
      //console.log(this.controle)
     this.subscription$ = this.controle.valueChanges.subscribe(d => {
-
+debugger
       if (this.controle.hasError(this.ValRules.Minlength)) {
         this.minlength = this.controle.getError(this.ValRules.Minlength)?.requiredLength;
       }
@@ -31,6 +33,16 @@ export class ValidationComponent extends FormBase implements OnInit,OnDestroy  {
       if (this.controle.hasError(this.ValRules.Maxlength)) {
         this.maxlength = this.controle.getError(this.ValRules.Maxlength)?.requiredLength;
       }
+
+      if (this.controle.hasError(this.ValRules.Min)) {
+        this.minlength = this.controle.getError(this.ValRules.Min)?.requiredLength;
+      }
+
+      if (this.controle.hasError(this.ValRules.Maxlength)) {
+        this.maxlength = this.controle.getError(this.ValRules.Max)?.requiredLength;
+      }
+
+
     })
   }
 
